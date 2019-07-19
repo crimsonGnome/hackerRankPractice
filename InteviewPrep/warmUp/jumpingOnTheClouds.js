@@ -71,15 +71,13 @@ function jumpingOnClouds(c) {
     jumps++;
     if (c[i + 2] !== 1) {
       i = i + 2;
-      console.log(`jumps ${jumps} index ${i}`);
     } else {
       i++;
-      console.log(`jumps ${jumps} index ${i}`);
     }
   }
   return jumps;
 }
 
-const c = [0, 0, 1, 0, 0, 1, 0];
+const c = [0, 0, 1, 0, 1, 0];
 
 jumpingOnClouds(c);

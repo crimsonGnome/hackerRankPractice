@@ -54,26 +54,27 @@
 
 // is beautiful because the following evaluates to a whole number: Day is not beautiful because the following doesn't evaluate to a whole number: Day is beautiful because the following evaluates to a whole number: Day is not beautiful because the following doesn't evaluate to a whole number: Only two days, and , in this interval are beautiful. Thus, we print as our answer.
 
-function inverse(i) {
-  let number = String(i);
-  number = number
-    .split('')
-    .reverse()
-    .join('');
-  number = Number(number);
-  return number;
-}
-
-function beautifulDays(i, j, k) {
-  let answer = 0;
-
-  for (i; i <= j; i++) {
-    let wholeNubmer = Math.abs(i - inverse(i)) / k;
-    if (wholeNubmer % 1 === 0) {
-      answer++;
-    }
+function appendAndDelete(s, t, k) {
+  let i = 0;
+  while (s[i] === t[i] && i < s.length) {
+    i++;
   }
-  return answer;
+  let answer = s.length + t.length - 2 * i;
+  if (k < answer) {
+    return 'No';
+  }
+  if (k > s.length + t.length) {
+    return 'Yes';
+  }
+  if (k % 2 === answer % 2) {
+    return 'Yes';
+  } else {
+    return 'No';
+  }
 }
 
-console.log(beautifulDays(20, 23, 6));
+let k = 2;
+let s = 'ash';
+let t = 'ash';
+
+console.log(appendAndDelete(s, t, k));
